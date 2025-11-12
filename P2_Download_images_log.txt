@@ -1,0 +1,214 @@
+Python 3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+
+= RESTART: C:\Users\HP\AppData\Roaming\Python\Python310\Scripts\Download_images_3.py
+==================================================
+开始下载 Instagram 图片...
+目标URL: https://www.instagram.com/grapeot/
+输出目录: F:/Machine_Learning/GenAI/P2/Downloads
+显示浏览器: True
+==================================================
+提取用户名: grapeot
+启动浏览器 (headless=False)...
+❌ 浏览器操作出错: BrowserType.launch: Executable doesn't exist at C:\Users\HP\AppData\Local\ms-playwright\chromium-1187\chrome-win\chrome.exe
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+playwright install
+SyntaxError: invalid syntax
+KeyboardInterrupt
+
+==================================== RESTART: C:\Users\HP\AppData\Roaming\Python\Python310\Scripts\Download_images_3.py ===================================
+==================================================
+开始下载 Instagram 图片...
+目标URL: https://www.instagram.com/grapeot/
+输出目录: F:/Machine_Learning/GenAI/P2/Downloads
+显示浏览器: True
+==================================================
+提取用户名: grapeot
+启动浏览器 (headless=False)...
+导航到 https://www.instagram.com/grapeot/...
+其他请求: https://www.instagram.com/grapeot/
+其他请求: https://static.cdninstagram.com/rsrc.php/v5/y2/l/1,cross/yWllC04JzFAjG8bCAPHdbuFGOzTHS-qT69xGOSJoq4L9fgQe914iiBfONMKn3YhINqU49pVNahkCkULwFA-9HIlnQvuWABIjhhRs97xFZK--hBruhBENOpKm_.css
+其他请求: https://static.cdninstagram.com/rsrc.php/v4iOAE4/yM/l/zh_CN/y63538KJMblM4P_H6vC0p7pkSvXqxaPdZ7oWmHwqi2Hvxg7Vq6d5dgEp5ROUS8kivu1R5L6YodwC0dwxXk93YMI-bMM3REca3bPVpHwnRP3sGRxJl8zJDv0wgNH88JTnPEvO9mxKT9dACSyGkmXnqWbOb-BJkPxmnX804TLCmTWBrQQNGurMEx1r11dDAm1IeMDUZu_zvaBKjRNQY_vY4GRd5ym074uq2jw8Jih397qFyFcaSD9qMEkYMFZyz5yzIrtSg1gl0NX2Tg92UVkR2H5bCGPGne1-RfokkNf3ctwbwf9BVd3qCpLlkdGCSmZMwjqgoADBYd.js
+其他请求: https://static.cdninstagram.com/rsrc.php/v4iSqR4/yj/l/zh_CN/_44gZINiAZt.js
+其他请求: https://static.cdninstagram.com/rsrc.php/v4itrJ4/yE/l/zh_CN/8vkxNaWCKt9.js
+其他请求: https://static.cdninstagram.com/rsrc.php/v4ijaq4/yt/l/zh_CN/4cP05o3QVO1_Go_cDPNfTvXA6e_RkzSIHfdN4vZOVYr_o2h1VuI6VThXGRWKP9QZ31.js
+其他请求: https://static.cdninstagram.com/rsrc.php/v4/yL/r/u0yqswxRbLp.js
+其他请求: https://static.cdninstagram.com/rsrc.php/v4/yM/r/W0UgDmGTXgR.js
+其他请求: https://static.cdninstagram.com/rsrc.php/v4/yp/r/wGwftl_ePEA.js
+其他请求: https://static.cdninstagram.com/rsrc.php/v4iN-V4/yG/l/zh_CN/h0kIXtteziqQ2Yp6jUpcQ4OQ6FdvjuzzkPTo9lEtpqmejj6G0QxibC3fOYDiwiSPQNXUJJJTNqBHaujzzcxg2wIvp3GhQHNE08QjS-qQUkPl634Rir-OhIeVEAL_3op54nKWQXb3vx5WF_neyb814_-RrqukZX9y41WiSbIYk1vN5JAzJO0CkiAkjAtiNtdU72rx3yCQf53KtAImB_qShLh1ZkQqdZ0BSXZtYm7fmHKrTm_nuBnZTvBSSrc84BHV-LT6xvZNUZy8ED90BDsTrytQWrBSYRry9JNv0s7OGjAD37Fl31aUAMBI80zJOUIvwHzvdYxGIT.js
+拦截到相关请求: https://www.instagram.com/graphql/query
+拦截到相关请求: https://www.instagram.com/graphql/query
+✅ 处理有效数据，URL: https://www.instagram.com/graphql/query
+开始处理 payload，keys: ['data', 'extensions', 'status']
+找到 user 数据
+总帖子数: None
+找到 0 条边
+✅ 处理有效数据，URL: https://www.instagram.com/graphql/query
+开始处理 payload，keys: ['data', 'extensions', 'status']
+找到 user 数据
+总帖子数: None
+找到 0 条边
+拦截到相关请求: https://www.instagram.com/api/v1/users/web_profile_info/?username=grapeot
+✅ 处理有效数据，URL: https://www.instagram.com/api/v1/users/web_profile_info/?username=grapeot
+开始处理 payload，keys: ['data', 'status']
+找到 user 数据
+总帖子数: 914
+找到 12 条边
+捕获媒体: ID=3747783635937458163, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+处理第 1 个节点，ID: 3747783635937458163
+捕获媒体: ID=3719542454493541700, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+发现轮播图，包含 3 个子媒体
+捕获子媒体: ID=3719542444368504169, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+捕获子媒体: ID=3719542444368487335, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+捕获子媒体: ID=3719542444368468278, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+处理第 2 个节点，ID: 3719542454493541700
+捕获媒体: ID=3617863039496633976, URL=https://scontent-sin11-2.cdninstagram.com/v/t51.28...
+处理第 3 个节点，ID: 3617863039496633976
+捕获媒体: ID=3603881429638410390, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+处理第 4 个节点，ID: 3603881429638410390
+捕获媒体: ID=3603879581695228837, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+处理第 5 个节点，ID: 3603879581695228837
+捕获媒体: ID=3603878868973962885, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+处理第 6 个节点，ID: 3603878868973962885
+捕获媒体: ID=3596649463402759531, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+发现轮播图，包含 4 个子媒体
+捕获子媒体: ID=3596649456280937299, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+捕获子媒体: ID=3596649456280966403, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+捕获子媒体: ID=3596649456155223986, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+捕获子媒体: ID=3596649456314489048, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+处理第 7 个节点，ID: 3596649463402759531
+捕获媒体: ID=3596646425904565332, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+发现轮播图，包含 7 个子媒体
+捕获子媒体: ID=3596646413254683462, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+捕获子媒体: ID=3596646413271362092, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+捕获子媒体: ID=3596646413271488944, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+捕获子媒体: ID=3596646413414109793, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+捕获子媒体: ID=3596646413397203377, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+捕获子媒体: ID=3596646413279744161, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+捕获子媒体: ID=3596646413254688128, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+处理第 8 个节点，ID: 3596646425904565332
+捕获媒体: ID=3481229256221534228, URL=https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+处理第 9 个节点，ID: 3481229256221534228
+捕获媒体: ID=3473357241778206860, URL=https://scontent-sin2-3.cdninstagram.com/v/t51.288...
+处理第 10 个节点，ID: 3473357241778206860
+捕获媒体: ID=3473227174214369684, URL=https://scontent-sin6-3.cdninstagram.com/v/t39.308...
+处理第 11 个节点，ID: 3473227174214369684
+捕获媒体: ID=3469712900194030635, URL=https://scontent-sin2-2.cdninstagram.com/v/t51.288...
+处理第 12 个节点，ID: 3469712900194030635
+新增 26 个媒体URL
+拦截到相关请求: https://www.instagram.com/graphql/query/?query_id=9957820854288654&user_id=4780317&include_chaining=false&include_reel=true&include_suggested_users=false&include_logged_out_extras=true&include_live_status=false&include_highlight_reels=true
+拦截到相关请求: https://www.instagram.com/api/v1/web/get_ruling_for_content/?content_type=PROFILE&target_id=4780317
+拦截到相关请求: https://www.instagram.com/api/graphql
+拦截到相关请求: https://www.instagram.com/api/graphql
+拦截到相关请求: https://www.instagram.com/api/graphql
+拦截到相关请求: https://www.instagram.com/graphql/query
+拦截到相关请求: https://www.instagram.com/api/graphql
+✅ 处理有效数据，URL: https://www.instagram.com/graphql/query/?query_id=9957820854288654&user_id=4780317&include_chaining=false&include_reel=true&include_suggested_users=false&include_logged_out_extras=true&include_live_status=false&include_highlight_reels=true
+开始处理 payload，keys: ['data', 'extensions', 'status']
+找到 user 数据
+找到 0 条边
+⚠️ 响应中没有 data 字段
+拦截到相关请求: https://www.instagram.com/api/graphql
+✅ 处理有效数据，URL: https://www.instagram.com/api/graphql
+开始处理 payload，keys: ['data', 'extensions']
+没有找到 user 数据
+✅ 处理有效数据，URL: https://www.instagram.com/api/graphql
+开始处理 payload，keys: ['data', 'extensions']
+没有找到 user 数据
+✅ 处理有效数据，URL: https://www.instagram.com/api/graphql
+开始处理 payload，keys: ['data', 'extensions']
+没有找到 user 数据
+✅ 处理有效数据，URL: https://www.instagram.com/graphql/query
+开始处理 payload，keys: ['data', 'extensions', 'status']
+没有找到 user 数据
+拦截到相关请求: https://www.instagram.com/api/graphql
+拦截到相关请求: https://www.instagram.com/api/graphql
+拦截到相关请求: https://www.instagram.com/graphql/query/?doc_id=18113378221181848&variables=%7B%22include_chaining%22%3Afalse%2C%22include_highlight_reels%22%3Atrue%2C%22include_live_status%22%3Afalse%2C%22include_logged_out_extras%22%3Atrue%2C%22include_reel%22%3Afalse%2C%22include_suggested_users%22%3Afalse%2C%22user_id%22%3A%224780317%22%7D
+✅ 处理有效数据，URL: https://www.instagram.com/api/graphql
+开始处理 payload，keys: ['data', 'extensions']
+没有找到 user 数据
+✅ 处理有效数据，URL: https://www.instagram.com/api/graphql
+开始处理 payload，keys: ['data', 'extensions']
+没有找到 user 数据
+⚠️ 响应中没有 data 字段
+⚠️ 响应中没有 data 字段
+⚠️ 响应中没有 data 字段
+页面标题: (@grapeot) · Instagram 照片和视频
+✅ 页面加载成功
+等待初始数据...
+等待初始数据加载...
+✅ 初始数据加载成功，总帖子数: 914
+开始自动滚动...
+滚动第 1 次
+检测到新数据，重置空闲计数
+滚动第 2 次
+空闲循环: 1/6
+滚动第 3 次
+空闲循环: 2/6
+滚动第 4 次
+空闲循环: 3/6
+连续3次滚动未发现新数据，停止滚动
+滚动完成，共收集 26 个媒体URL
+总共拦截了 72 个请求
+收集到 26 个媒体 URL
+开始下载 26 个媒体...
+下载第 1 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3747783635937458163.jpg
+下载第 2 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3719542454493541700.jpg
+下载第 3 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3719542444368504169.jpg
+下载第 4 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3719542444368487335.jpg
+下载第 5 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3719542444368468278.jpg
+下载第 6 个媒体: https://scontent-sin11-2.cdninstagram.com/v/t51.28...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3617863039496633976.jpg
+下载第 7 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3603881429638410390.jpg
+下载第 8 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3603879581695228837.jpg
+下载第 9 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3603878868973962885.jpg
+下载第 10 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596649463402759531.jpg
+下载第 11 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596649456280937299.jpg
+下载第 12 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596649456280966403.jpg
+下载第 13 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596649456155223986.jpg
+下载第 14 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596649456314489048.jpg
+下载第 15 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596646425904565332.jpg
+下载第 16 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596646413254683462.jpg
+下载第 17 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596646413271362092.jpg
+下载第 18 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596646413271488944.jpg
+下载第 19 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596646413414109793.jpg
+下载第 20 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596646413397203377.jpg
+下载第 21 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596646413279744161.jpg
+下载第 22 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3596646413254688128.jpg
+下载第 23 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3481229256221534228.jpg
+下载第 24 个媒体: https://scontent-sin2-3.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3473357241778206860.jpg
+下载第 25 个媒体: https://scontent-sin6-3.cdninstagram.com/v/t39.308...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3473227174214369684.jpg
+下载第 26 个媒体: https://scontent-sin2-2.cdninstagram.com/v/t51.288...
+✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3469712900194030635.jpg
+下载完成！共下载 26 张图片到 F:\Machine_Learning\GenAI\P2\Downloads\grapeot
