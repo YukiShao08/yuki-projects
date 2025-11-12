@@ -1,28 +1,6 @@
 Python 3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)] on win32
 Type "help", "copyright", "credits" or "license()" for more information.
 
-= RESTART: C:\Users\HP\AppData\Roaming\Python\Python310\Scripts\Download_images_3.py
-==================================================
-开始下载 Instagram 图片...
-目标URL: https://www.instagram.com/grapeot/
-输出目录: F:/Machine_Learning/GenAI/P2/Downloads
-显示浏览器: True
-==================================================
-提取用户名: grapeot
-启动浏览器 (headless=False)...
-❌ 浏览器操作出错: BrowserType.launch: Executable doesn't exist at C:\Users\HP\AppData\Local\ms-playwright\chromium-1187\chrome-win\chrome.exe
-╔════════════════════════════════════════════════════════════╗
-║ Looks like Playwright was just installed or updated.       ║
-║ Please run the following command to download new browsers: ║
-║                                                            ║
-║     playwright install                                     ║
-║                                                            ║
-║ <3 Playwright Team                                         ║
-╚════════════════════════════════════════════════════════════╝
-playwright install
-SyntaxError: invalid syntax
-KeyboardInterrupt
-
 ==================================== RESTART: C:\Users\HP\AppData\Roaming\Python\Python310\Scripts\Download_images_3.py ===================================
 ==================================================
 开始下载 Instagram 图片...
@@ -212,3 +190,4 @@ KeyboardInterrupt
 下载第 26 个媒体: https://scontent-sin2-2.cdninstagram.com/v/t51.288...
 ✅ 已保存: F:\Machine_Learning\GenAI\P2\Downloads\grapeot\3469712900194030635.jpg
 下载完成！共下载 26 张图片到 F:\Machine_Learning\GenAI\P2\Downloads\grapeot
+
