@@ -1,3 +1,4 @@
+#Run in python310 IDE
 """Instagram 图片下载器 - 调试版本"""
 import time
 import sys
@@ -273,3 +274,4 @@ if __name__ == "__main__":
     print("=" * 50)
     
     download_instagram(profile_url, output_dir, headful)
+
