@@ -1,0 +1,26 @@
+Error: OpenAI-compatible client not initialized....
+Summary: Fix approach and lessons learned
+The problem
+Error: Client.__init__() got an unexpected keyword argument 'proxies'
+Root cause: Version mismatch between openai==1.12.0 and httpx==0.28.1
+openai 1.12.0 expects httpx with a proxies parameter
+httpx 0.28.1 removed proxies (uses proxy instead)
+Diagnosis steps
+Checked error messages: the 500 error pointed to client initialization failure
+Tested client initialization directly: py -3 -c "import main; main.get_openai_client()"
+Verified package versions: py -3 -m pip show httpx and py -3 -m pip show openai
+Confirmed API changes: checked httpx.Client.__init__ signature
+The fix
+Pinned httpx to a compatible version: httpx==0.25.2 (matches openai==1.12.0)
+Restarted the FastAPI server to load the new version
+Prevention tips
+Use a requirements.txt with pinned versions:
+   httpx==0.25.2   openai==1.12.0
+Test after dependency updates: run a simple import/initialization test
+Check compatibility: review release notes when upgrading major packages
+Use virtual environments: isolate project dependencies
+Read error messages: they often point to the root cause (here, the proxies parameter)
+Quick diagnostic command
+py -3 -c "import main; print(main.get_openai_client())"
+This quickly tests if your client initializes correctly.
+Bottom line: When you see "unexpected keyword argument" errors, check for version mismatches between related packages.
