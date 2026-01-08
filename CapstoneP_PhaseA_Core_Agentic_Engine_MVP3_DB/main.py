@@ -32,7 +32,7 @@ if sys.platform == 'win32':
 # Request throttling for DuckDuckGo searches
 _last_search_time = 0
 _search_lock = Lock()
-_min_search_interval = 10  # Minimum seconds between search requests (increased to reduce rate limiting)
+_min_search_interval = 3  # Minimum seconds between search requests (reduced for faster responses)
 
 # Load environment variables from .env file (explicit path to avoid CWD issues)
 BASE_DIR = Path(__file__).resolve().parent
@@ -210,12 +210,8 @@ def duckduckgo_search(query: str, max_results: int = 3) -> str:
     
     # Retry logic for rate limiting
     max_retries = 3
-    retry_delay = 5  # seconds (increased to handle rate limits better)
-    initial_delay = 2  # Small delay before first request to avoid immediate rate limits
-    
-    # Add initial delay to space out requests
-    if max_retries > 0:
-        time.sleep(initial_delay)
+    retry_delay = 2  # seconds (reduced for faster responses)
+    # Removed initial_delay for faster responses
     
     for attempt in range(max_retries):
         try:
@@ -331,7 +327,7 @@ QUERY_MY_NOTES_TOOL = {
     "type": "function",
     "function": {
         "name": "query_my_notes",
-        "description": "Search your personal banking knowledge base containing banking documents about interest rates, loan terms, deposit information, and banking policies for Hong Kong and China. Use this tool when the user asks questions about banking products, interest rates, loans, deposits, mortgages, or banking policies. This tool searches through local banking documents and can provide specific, accurate information from your knowledge base. Always use this tool FIRST for banking-related questions before using web search.",
+        "description": "Search your personal banking knowledge base containing banking documents about interest rates, loan terms, deposit information, and banking policies for Hong Kong and China. IMPORTANT: ONLY use this tool for banking-related questions (banking products, interest rates, loans, deposits, mortgages, banking policies). DO NOT use this tool for non-banking questions like general knowledge, weather, news, or other topics. For non-banking questions, use duckduckgo_search directly. Always use this tool FIRST for banking-related questions before using web search.",
         "parameters": {
             "type": "object",
             "properties": {
@@ -430,6 +426,9 @@ async def chat(request: ChatRequest):
         )
     
     try:
+        import time as time_module
+        start_time = time_module.time()
+        
         # Store initial user message for logging
         initial_user_message = request.user_message
 
@@ -452,6 +451,8 @@ RESPONSE STYLE:
 - Be concise and direct. Provide the essential information without unnecessary elaboration.
 - For factual questions, give the answer first, then cite sources.
 - Avoid lengthy explanations unless the user asks for details.
+- Use formatting (emojis, sections, bullet points) to make information easy to read.
+- When using web search, make ONE search query and provide the answer directly. Do NOT show the search process or make multiple searches unless absolutely necessary.
 
 BANKING QUESTIONS HANDLING:
 1. When users ask questions about banking products, interest rates, loans, deposits, mortgages, or banking policies for Hong Kong or China, ALWAYS use the query_my_notes tool FIRST to search your local banking documents.
@@ -464,11 +465,11 @@ BANKING QUESTIONS HANDLING:
      * The question is about banking topics outside Hong Kong/China
      * The question requires real-time data or news
 
-3. For non-banking questions: Use duckduckgo_search directly. Provide concise answers - give the key information first, then cite sources if needed.
+3. For non-banking questions: Use duckduckgo_search directly WITHOUT mentioning the local knowledge base. Do NOT say anything about searching the local knowledge base for non-banking questions. Simply provide the answer directly using web search results.
 
-4. Always be transparent: If you're using web search because local knowledge didn't have the answer, mention this briefly to the user.
+4. Transparency (ONLY for banking questions): If you're using web search for a BANKING question because local knowledge didn't have the answer, mention this briefly to the user. For non-banking questions, do NOT mention the local knowledge base at all.
 
-5. Always cite your sources and provide specific information from the knowledge base when available."""
+5. Always cite your sources and provide specific information from the knowledge base when available. But please make the answer short and concise."""
             }
         ]
         
@@ -485,12 +486,18 @@ BANKING QUESTIONS HANDLING:
                         "role": msg["role"],
                         "content": msg["content"]
                     })
+            print(f"✅ Added {len([m for m in previous_messages if m['role'] in ['user', 'assistant']])} previous messages to conversation context")
+        else:
+            print(f"ℹ️ No previous messages found for chat {chat_id} (new conversation)")
         
         # Add the current user message
         messages.append({
             "role": "user",
             "content": request.user_message
         })
+        
+        # Debug: Print total message count being sent to API
+        print(f"📤 Sending {len(messages)} total messages to API (1 system + {len(messages)-1} conversation messages)")
         
         # Save the current user message to database (after loading history to avoid duplicates)
         save_message(chat_id, initial_user_message, "user")
@@ -516,13 +523,17 @@ BANKING QUESTIONS HANDLING:
                 print(f"Warning: Could not check banking notes tool availability: {e}")
             
             # Call the chat completion API with tools
+            api_start = time_module.time()
             completion = client.chat.completions.create(
                 model="gpt-5",
                 messages=messages,
                 tools=tools,
                 tool_choice="auto",  # Let the model decide when to use tools
-                max_tokens=4000  # Allow longer responses
+                max_tokens=4000,  # Allow longer responses
+                temperature=0.3  # Lower temperature for more consistent responses (0.0-1.0, lower = more deterministic)
             )
+            api_time = time_module.time() - api_start
+            print(f"⏱️ API call took {api_time:.2f} seconds")
             
             message = completion.choices[0].message
             
@@ -607,9 +618,12 @@ BANKING QUESTIONS HANDLING:
                 save_message(chat_id, final_response, "assistant")
                 print(f"Saved assistant response to chat {chat_id}")
                 
+                total_time = time_module.time() - start_time
+                print(f"⏱️ Total request time: {total_time:.2f} seconds")
+                
                 return {
                     "response": final_response,
-                    "chat_id": chat_id,  # Return chat_id for frontend to track conversation
+                    "chat_id": chat_id,
                     "message_history": message_history
                 }
             
@@ -715,7 +729,8 @@ BANKING QUESTIONS HANDLING:
         final_completion = client.chat.completions.create(
             model="gpt-5",
             messages=messages,
-            max_tokens=4000  # Allow longer responses
+            max_tokens=4000,  # Allow longer responses
+            temperature=0.3  # Lower temperature for more consistent responses
         )
         
         final_response = final_completion.choices[0].message.content or "I apologize, but I couldn't complete the request."
@@ -797,13 +812,15 @@ BANKING QUESTIONS HANDLING:
             "final_assistant_message": final_response
         }
 
-        # Save assistant's response to database
         save_message(chat_id, final_response, "assistant")
         print(f"Saved assistant response to chat {chat_id}")
         
+        total_time = time_module.time() - start_time
+        print(f"⏱️ Total request time: {total_time:.2f} seconds")
+        
         return {
             "response": final_response,
-            "chat_id": chat_id,  # Return chat_id for frontend to track conversation
+            "chat_id": chat_id,
             "message_history": message_history
         }
     

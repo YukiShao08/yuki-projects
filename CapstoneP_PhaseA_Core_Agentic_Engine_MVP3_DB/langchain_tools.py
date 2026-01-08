@@ -13,7 +13,7 @@ from banking_notes_tool import query_my_notes, get_banking_notes_tool, banking_n
 
 class MultiSearchInput(BaseModel):
     """Input schema for Multi search tool"""
-    query: str = Field(description="TThe search query string. Be specific and clear about what you're searching for.")
+    query: str = Field(description="The search query string. Be specific and clear about what you're searching for.")
     max_results: int = Field(
         description="Maximum number of search results to return. Default is 5, maximum is 10.",
         default=5,

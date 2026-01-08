@@ -12,7 +12,7 @@ from threading import Lock
 # Global throttling for all search providers
 _last_search_time = 0
 _search_lock = Lock()
-_min_search_interval = 5  # Reduced to 5 seconds (less aggressive than DuckDuckGo-only)
+_min_search_interval = 1  # Reduced to 1 second for faster responses
 
 
 def search_duckduckgo(query: str, max_results: int = 5) -> Optional[Dict]:
@@ -247,7 +247,6 @@ def multi_search(query: str, max_results: int = 5, tavily_api_key: str = "") -> 
     """
     # 2. Fallback to Tavily (if API key provided)
     if tavily_api_key:
-        time.sleep(1)  # Small delay between providers
         result = search_tavily(query, max_results, tavily_api_key)
         if result and "error" not in result:
             return json.dumps({
@@ -262,7 +261,6 @@ def multi_search(query: str, max_results: int = 5, tavily_api_key: str = "") -> 
             providers_tried.append(f"Tavily ({result.get('error', 'failed')})")
     
     # 3. Fallback to SearXNG (last resort)
-    time.sleep(1)  # Small delay between providers
     result = search_searxng(query, max_results)
     if result and "error" not in result:
         return json.dumps({

@@ -73,7 +73,9 @@ def get_messages(chat_id: str) -> list[Dict[str, Any]]: #append dict to a list
         cursor = conn.cursor()
         cursor.execute(
             """
-            SELECT role, content, created_at FROM chatbot_db.dbo.chat_messages WHERE chat_id = ?
+            SELECT role, content, created_at FROM chatbot_db.dbo.chat_messages 
+            WHERE chat_id = ? 
+            ORDER BY created_at ASC
             """,(chat_id,)
         )
 
